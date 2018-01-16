@@ -13,19 +13,23 @@ let mainWindow;
 const template = [
   {
     label: 'Upload',
-    click () { mainWindow.loadURL(url.format({
+    click () { 
+      mainWindow.loadURL(url.format({
       pathname: path.join(__dirname, 'app/upload.html'),
       protocol: 'file:',
       slashes: true
-    }));}
+      }));
+    }
   },
   {
     label: 'Downlaod',
-    click () { mainWindow.loadURL(url.format({
+    click () { 
+      mainWindow.loadURL(url.format({
       pathname: path.join(__dirname, 'app/download.html'),
       protocol: 'file:',
       slashes: true
-    })); }
+      })); 
+    }
   }
 ];
 function createWindow () {

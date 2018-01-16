@@ -4,7 +4,8 @@
   "description": "file dropbox",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . dropbox --out=build-out --asar --overwrite --platform=linux --arch=x64"
   },
   "repository": "https://github.com/snutiise/dropbox",
   "keywords": [
@@ -14,7 +15,10 @@
   "author": "JeonSeungHoon",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^1.7.10"
+    "asar": "^0.14.0",
+    "electron": "^1.7.10",
+    "electron-builder": "^19.53.7",
+    "electron-packager": "^10.1.1"
   },
   "dependencies": {
     "jquery": "^3.2.1"

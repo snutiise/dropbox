@@ -1,13 +1,13 @@
 window.$ = window.jQuery = require('jquery');
 $(document).ready(function(){
     $.ajax({
-        url: 'http://localhost:8002/list',
+        url: 'http://sodeok.xyz:8002/list',
         type: 'POST',
         success:function(data){
             if(data!="[]"){
                 let json=JSON.parse(data);
                 for(let i=0;i<Object.keys(json).length;i++){
-                    let list="<a href='http://localhost:8002/download/"+String(json[i]["code"])+"'><div class='file'><img src='img/file.png' /><span>"+ String(json[i]["filename"]) + "</span></div></a>";
+                    let list="<a href='http://sodeok.xyz:8002/download/"+String(json[i]["code"])+"'><div class='file'><img src='img/file.png' /><span>"+ String(json[i]["filename"]) + "</span></div></a>";
                     $("#dropboxDownload").append(list);
                 }
             }

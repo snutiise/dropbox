@@ -29,7 +29,6 @@ progress{
     overflow: hidden;
     margin: 16px;
     text-align: center;
-    transition-duration: 1s;
 }
 
 .file img{
@@ -43,6 +42,8 @@ progress{
 .file:hover{
     background: rgb(230, 229, 229);
     overflow:visible;
+    height: 100%;
+    min-height: 100px;
     transition-duration: 1s;
     cursor: pointer;
 }

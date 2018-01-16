@@ -2,11 +2,11 @@ window.$ = window.jQuery = require('jquery');
 
 let dropbox = document.getElementById('dropbox');
 dropbox.ondragover = function (e) {
-    e.preventDefault(); // 이 부분이 없으면 ondrop 이벤트가 발생하지 않습니다.
+    e.preventDefault();
 };
 
 dropbox.ondrop = function (e) {
-    e.preventDefault(); // 이 부분이 없으면 파일을 브라우저 실행해버립니다.
+    e.preventDefault();
     let data = e.dataTransfer;
     let file = new FormData();
     flag=false;
@@ -16,7 +16,7 @@ dropbox.ondrop = function (e) {
     }
     if(flag)
     $.ajax({
-        url: 'http://localhost:8002/upload',
+        url: 'http://sodeok.xyz:8002/upload',
         type: 'POST',
         data: file,
         cache: false,
