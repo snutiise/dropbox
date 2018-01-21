@@ -27,12 +27,16 @@ $(document).ready(function(){
                 $(".file").on("mouseenter", function(event){
                     $("#size").text($(this).find(".size").text());
                     $("#date").text($(this).find(".date").text());
-                    $("#tooltip").css("left", event.pageX);
-                    $("#tooltip").css("top", event.pageY);
-                    $("#tooltip").css("display","block");
+                    $("#tooltip").css("left", $(this).offset().left+100);
+                    $("#tooltip").css("top", $(this).offset().top);
+                    $("#tooltip").css("opacity","1");
+                    $("#tooltip").css("transition-duration","1");
+                    $("#tooltip").css("z-index","100");
                 });
                 $(".file").on("mouseleave",function(){
-                    $("#tooltip").css("display","none");
+                    $("#tooltip").css("z-index","-1");
+                    $("#tooltip").css("opacity","0");
+                    $("#tooltip").css("transition-duration","1");
                 });
                 $(".file").contextmenu(function() {
                     let $temp = $("<input>");

@@ -57,16 +57,17 @@ a span, a:visited span, a:hover span{
 }
 
 #tooltip{
-    display: none;
+    opacity: 0;
     position: absolute;
     background: rgb(189, 188, 188);
     padding: 15px;
     width: 150px;
     height: 75px;
-    left: 0px;
-    top: 0px;
+    left: -100px;
+    top: -100px;
     z-index: 100;
     border-radius: 10px;
+    transition-duration: 1s;
 }
 #tooltip span{
     display:block;
