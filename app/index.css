@@ -31,12 +31,13 @@ progress{
     text-align: center;
 }
 
-.file img{
+.file .img{
     margin-top:10px;
     margin-left:25px;
     display: block;
     width:50px;
     height:50px;
+    font-size: 30px;
 }
 
 .file:hover{
@@ -48,6 +49,26 @@ progress{
     cursor: pointer;
 }
 
-a, a:visited, a:hover{
+.size, .date{
+    display:none;
+}
+a span, a:visited span, a:hover span{
     color:black;
+}
+
+#tooltip{
+    display: none;
+    position: absolute;
+    background: rgb(189, 188, 188);
+    padding: 15px;
+    width: 150px;
+    height: 75px;
+    left: 0px;
+    top: 0px;
+    z-index: 100;
+    border-radius: 10px;
+}
+#tooltip span{
+    display:block;
+    font-size: 10px;
 }
