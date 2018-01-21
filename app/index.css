@@ -73,3 +73,12 @@ a span, a:visited span, a:hover span{
     display:block;
     font-size: 10px;
 }
+
+input{
+    display: block;
+    margin: 10px !important;
+}
+
+.form{
+    text-align: center;
+}

@@ -1,4 +1,5 @@
 window.$ = window.jQuery = require('jquery');
+const {ipcRenderer} = require('electron');
 
 let dropbox = document.getElementById('dropbox');
 dropbox.ondragover = function (e) {
@@ -10,6 +11,7 @@ dropbox.ondrop = function (e) {
     let data = e.dataTransfer;
     let file = new FormData();
     flag=false;
+    file.append("id",ipcRenderer.sendSync('upload', 'id'));
     for (let i = 0; i < data.files.length; i++) {
         file.append('file', data.files[i]);
         if(i==data.files.length-1) flag=true;
@@ -37,11 +39,16 @@ dropbox.ondrop = function (e) {
             return myXhr;
         },
         success:function(data){
-            if(data=="ok")
-            $('progress').attr({
-                value: 0,
-                max: 0
-            });
+            if(data=="ok"){
+                $('progress').attr({
+                    value: 0,
+                    max: 0
+                });
+            }
+            else alert(data);
         }
     });
 };
+
+$(document).ready(function(){
+});

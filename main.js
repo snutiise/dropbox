@@ -6,19 +6,31 @@ const BrowserWindow = electron.BrowserWindow;
 
 const path = require('path');
 const url = require('url');
+const {session, ipcMain} = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+let login=false;
+let id='';
 const template = [
   {
     label: 'Upload',
     click () { 
-      mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, 'app/upload.html'),
-      protocol: 'file:',
-      slashes: true
-      }));
+      if(login){
+        mainWindow.loadURL(url.format({
+          pathname: path.join(__dirname, 'app/upload.html'),
+          protocol: 'file:',
+          slashes: true
+          }));
+      }
+      else{
+        mainWindow.loadURL(url.format({
+          pathname: path.join(__dirname, 'app/login.html'),
+          protocol: 'file:',
+          slashes: true
+        }));
+      }
     }
   },
   {
@@ -38,11 +50,10 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'app/upload.html'),
+    pathname: path.join(__dirname, 'app/login.html'),
     protocol: 'file:',
     slashes: true
   }));
-
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 
@@ -70,6 +81,15 @@ app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
     app.quit();
   }
+});
+
+ipcMain.on('login', (event, arg) => {
+  id=arg;
+  login=true;
+});
+
+ipcMain.on('upload', (event, arg) => {
+  event.returnValue = id;
 });
 
 app.on('activate', function () {
