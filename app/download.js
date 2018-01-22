@@ -27,7 +27,10 @@ $(document).ready(function(){
                 $(".file").on("mouseenter", function(event){
                     $("#size").text($(this).find(".size").text());
                     $("#date").text($(this).find(".date").text());
-                    $("#tooltip").css("left", $(this).offset().left+100);
+                    let left;
+                    if($(this).offset().left+150<800) left =$(this).offset().left+100;
+                    else left=$(this).offset().left-150;
+                    $("#tooltip").css("left", left);
                     $("#tooltip").css("top", $(this).offset().top);
                     $("#tooltip").css("opacity","1");
                     $("#tooltip").css("transition-duration","1");

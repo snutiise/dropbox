@@ -10,6 +10,13 @@ body{
     justify-content: center;
     align-items: center;
 }
+#dropboxDownload{
+    display: flex;
+    position: absolute;
+    width:100%;
+    height:100%;
+    flex-wrap: wrap;
+}
 
 #dropbox h2{
     font-weight: 900;
@@ -22,12 +29,10 @@ progress{
 }
 
 .file{
-    display: block;
-    float: left;
     width:100px;
     height:100px;
     overflow: hidden;
-    margin: 16px;
+    margin: 15px;
     text-align: center;
 }
 
@@ -44,6 +49,7 @@ progress{
     background: rgb(230, 229, 229);
     overflow:visible;
     height: 100%;
+    width:100px;
     min-height: 100px;
     transition-duration: 1s;
     cursor: pointer;
@@ -51,6 +57,9 @@ progress{
 
 .size, .date{
     display:none;
+}
+a{
+    text-decoration:none !important;
 }
 a span, a:visited span, a:hover span{
     color:black;
