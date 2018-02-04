@@ -12,7 +12,6 @@ body{
 }
 #dropboxDownload{
     display: flex;
-    position: absolute;
     width:100%;
     height:fit-content;
     flex-wrap: wrap;
@@ -27,7 +26,11 @@ progress{
     position: absolute;
     top:55%;
 }
-
+.remove{
+    position: absolute;
+    left: 40px; 
+    top:10px;
+}
 .file{
     width:100px;
     height:100px;
